@@ -1,7 +1,10 @@
 import http from '@/utils/http'
 
-export const getBannerListApi = () => {
-    return http.get('home/banner')
+export const getBannerListApi = (params = {}) => {
+    const { distributionSite = '1' } = params
+    return http.get('home/banner', {
+      distributionSite
+    })
 }
 
 export const findNewApi = () => {
