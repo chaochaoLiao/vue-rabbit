@@ -11,3 +11,9 @@ export const findNewApi = () => {
 export const getHotAPI = () => {
     return  http.get('home/hot')
   }
+
+  export const getGoodsAPI = () => {
+    return http({
+      url: '/home/goods'
+    })
+  }
