@@ -28,7 +28,8 @@ export const useCartStore = defineStore('cart', () => {
         const item = cartList.value.find(item => item.skuId === skuId)
         item.count = count
     }
-
+    const clearCartList = () => { cartList.value = []}
+    
     const removeCart = async (skuId) => {
         if(isLogin.value) {
            await delCartAPI([skuId])
@@ -86,7 +87,8 @@ export const useCartStore = defineStore('cart', () => {
         allCheck,
         selectedCount,
         selectedPrice,
-        countFix
+        countFix,
+        clearCartList
     }
 },{
     persist: true,
