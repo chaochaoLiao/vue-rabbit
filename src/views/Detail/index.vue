@@ -20,7 +20,7 @@ onMounted(() => {
 //sku组件
 let skuObj = {}
 const skuChange = (sku) => {
-  console.log(sku)
+  
   skuObj = sku
 }
 // 购物车计数器组件
