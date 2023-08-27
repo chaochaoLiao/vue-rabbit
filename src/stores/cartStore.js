@@ -24,6 +24,10 @@ export const useCartStore = defineStore('cart', () => {
         }
 
     }
+    const updata = async () => {
+        const res = await findNewCartListAPI()
+        cartList.value = res.result
+    }
     const countFix = (skuId, count) => {
         const item = cartList.value.find(item => item.skuId === skuId)
         item.count = count
@@ -88,7 +92,8 @@ export const useCartStore = defineStore('cart', () => {
         selectedCount,
         selectedPrice,
         countFix,
-        clearCartList
+        clearCartList,
+        updata
     }
 },{
     persist: true,

@@ -4,6 +4,9 @@ import { ref, onMounted } from 'vue'
 import { createOrderAPI } from '@/api/checkout'
 import { useRouter } from 'vue-router'
 
+import { useCartStore } from "@/stores/cartStore"
+
+const cartStore = useCartStore()
 const router = useRouter()
 const checkInfo = ref({})  // 订单对象
 const curAddress = ref({})
@@ -41,6 +44,9 @@ const createOrder = async () => {
         addressId: curAddress.value.id,
     })
     const orderId = res.result.id
+    cartStore.updata()
+    
+           
     router.push({
         path: '/pay',
         query: {
