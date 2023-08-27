@@ -5,8 +5,8 @@ const cartStore = useCartStore()
 const singleCheck = (i, selected) => {
   cartStore.singleCheck(i.skuId, selected)
 }
-const allCheck = (isAll) => {
-  cartStore.allCheck(isAll)
+const allCheck = (selected) => {
+  cartStore.allCheck(selected)
 }
 const countFix = (i, count) => {
   cartStore.countFix(i.skuId, count)
@@ -85,7 +85,7 @@ const countFix = (i, count) => {
           <span class="red">¥ {{ cartStore.selectedPrice.toFixed(2) }} </span>
         </div>
         <div class="total">
-          <el-button size="large" type="primary" >下单结算</el-button>
+          <el-button size="large" type="primary" @click="$router.push('/checkout')">下单结算</el-button>
         </div>
       </div>
     </div>
